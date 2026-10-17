@@ -3,6 +3,7 @@ import { PageHero } from '@/components/page-hero'
 import { GprChart } from '@/components/research/gpr-chart'
 import { TradeConcentration } from '@/components/research/trade-concentration'
 import { externalLinks } from '@/lib/links'
+import { loadTradeConcentrationData } from '@/lib/trade'
 
 export const metadata: Metadata = {
   title: 'China–Russia Trade Relations',
@@ -23,12 +24,13 @@ function Panel({ id, title, description, children }: { id: string; title: string
 }
 
 export default function ChinaRussiaTradePage() {
+  const concentrationData = loadTradeConcentrationData()
   return (
     <>
       <PageHero
         eyebrow="Research dashboard"
         title="China–Russia Trade Relations"
-        description="How has geopolitical risk evolved for China and Russia, and how concentrated is the trade between them? This dashboard brings together a long-run risk index and a framework for measuring commodity concentration."
+        description="How has risk evolved and redistributed in China and Russia trade, and how are they affected by geopolitical disruptions? This dashboard summarizes my current research and brings together geopolitical, concentration, dependency, transport, and economic risks. The goal is to put all of these together to create an overall risk framework that can be used on any trade partners. For context, China and Russia has been chosen as the case study because trade between them has been rapidly increasing, especially after the Russian annexation of Crimea in February 2014 and Russia's invasion of Ukraine in February 2022. The research concentrates on how trade and risk factors are affected by these disputions."
         accentVar="--accent-research"
         backHref="/research"
         backLabel="Back to Research Observatory"
@@ -38,7 +40,7 @@ export default function ChinaRussiaTradePage() {
         <Panel
           id="gpr"
           title="Geopolitical Risk Index"
-          description="The country-specific Geopolitical Risk (GPR) Index measures the share of newspaper articles that discuss adverse geopolitical events and mention a given country. Higher values mean more coverage of geopolitical tension involving that country."
+          description="The country-specific Geopolitical Risk (GPR) Index measures the share of newspaper articles that discuss adverse geopolitical events and mention a given country. Higher values mean more coverage of geopolitical tension involving that country. Both countries' geopilitical risk spikes from February 2022 to March 2022, right after Russia's invasion of Ukraine."
         >
           <GprChart />
           <details className="rounded-lg border border-border p-4 text-sm text-muted-foreground">
@@ -70,21 +72,48 @@ export default function ChinaRussiaTradePage() {
           title="Trade concentration"
           description="How dependent is each side on a few product categories? Concentration is summarized by each category’s share of reported trade, the combined share of the top N categories, and the Herfindahl–Hirschman Index (HHI)."
         >
-          <TradeConcentration />
+          <TradeConcentration {...concentrationData} />
+
           <details className="rounded-lg border border-border p-4 text-sm text-muted-foreground">
-            <summary className="cursor-pointer font-medium text-foreground">Methodology</summary>
+            <summary className="cursor-pointer font-medium text-foreground">
+              Sources, methodology, and data limitations
+            </summary>
+
             <div className="mt-3 flex flex-col gap-2 leading-relaxed">
               <p>
-                Each category’s share is its trade value divided by the total of all reported categories for the selected
-                country, flow, and year. If the data includes a residual “Other” category, it stays in the denominator and is
-                treated as one category. Shares are never renormalized to hide missing categories.
+                Commodity-level export data for 2010–2014 are sourced from UN
+                Comtrade. Data for 2015–2026 are sourced from the General
+                Administration of Customs of China.
               </p>
+
               <p>
-                The HHI is the sum of squared category shares, with shares in percent, giving a scale from near 0 (trade spread
-                evenly across many categories) to 10,000 (all trade in one category). Values below 1,500 are labelled
-                unconcentrated, 1,500–2,500 moderately concentrated, and above 2,500 highly concentrated.
+                <strong className="text-foreground">Estimated observations: </strong>
+                Values from October 2012 through December 2014, inclusive,
+                are estimated based on annual values rather than observed
+                monthly values. Interpret month-to-month changes during this
+                period with caution.
               </p>
-              <p>The HHI depends on how finely categories are defined, so only compare values that use the same classification.</p>
+
+              <p>
+                Each commodity line represents the corresponding category's
+                share of reported exports, using the precomputed _CON columns
+                in the country-specific datasets. The charts do not recalculate
+                these shares.
+              </p>
+
+              <p>
+                The Herfindahl–Hirschman Index (HHI) series uses the
+                precomputed CHN_HHI and RUS_HHI columns in main_data.csv.
+                HHI measures overall concentration across categories and
+                is distinct from the share of any individual commodity.
+              </p>
+
+              <p>
+                HS codes identify commodity categories. The categories shown
+                are the current top ten categories for each country, so they
+                should not necessarily be interpreted as the historical top
+                ten in every month.
+              </p>
             </div>
           </details>
         </Panel>

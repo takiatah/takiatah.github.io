@@ -1,71 +1,74 @@
-export type ReportingCountry = 'China' | 'Russia'
-export type TradeDirection = 'export' | 'import'
 
-/**
- * One observation of bilateral trade in a commodity category.
- * `value` is in current US dollars. The reporting country trades with its partner
- * (China → Russia, or Russia → China).
- */
-export interface CommodityTradeRecord {
-  reporter: ReportingCountry
-  direction: TradeDirection
-  year: number
-  /** HS chapter or section label, e.g. "27 — Mineral fuels". Use "Other" for residual categories. */
-  category: string
-  value: number
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
+import { parse } from 'csv-parse/sync'
+import { chinaCommodityColumns, russiaCommodityColumns, } from '@/lib/trade-concentration-columns'
+
+type CsvRow = Record<string, string>
+
+function readCsv(filename: string): CsvRow[] {
+  const filepath = path.join(process.cwd(), 'lib', 'data', filename)
+  const content = readFileSync(filepath, 'utf8')
+
+  return parse(content, {
+    columns: true,
+    skip_empty_lines: true,
+    bom: true,
+    trim: true,
+  }) as CsvRow[]
 }
 
-/**
- * Commodity-level dataset. Empty until the real data is supplied, so the dashboard
- * renders its "dataset pending" state instead of fictional values.
- */
-export const commodityTrade: CommodityTradeRecord[] = []
+function numeric(value: string | undefined): number | null {
+  if (value == null || value.trim() === '') return null
 
-export interface CategoryShare {
-  category: string
-  value: number
-  share: number
+  const result = Number(value) * 100
+  return Number.isFinite(result) ? result : null
 }
 
-export interface ConcentrationSummary {
-  total: number
-  categories: CategoryShare[]
-  topShare: number
-  /** HHI on the 0–10,000 scale (shares expressed as percentages, then squared and summed). */
-  hhi: number
-  includesResidual: boolean
+function numericHHI(value: string | undefined): number | null {
+  if (value == null || value.trim() === '') return null
+
+  const result = Number(value)
+  return Number.isFinite(result) ? result : null
 }
 
-/**
- * Shares use the sum of all reported category values as the denominator, including any
- * residual "Other" category. Nothing is renormalized: if the supplied categories do not cover
- * total trade, the shares describe the reported categories only.
- */
-export function summarizeConcentration(records: CommodityTradeRecord[], topN: number): ConcentrationSummary | null {
-  const byCategory = new Map<string, number>()
-  for (const r of records) byCategory.set(r.category, (byCategory.get(r.category) ?? 0) + r.value)
+export function loadTradeConcentrationData() {
+  const china = readCsv('china_commodity_exports.csv')
+  const russia = readCsv('russia_commodity_exports.csv')
+  const main = readCsv('main_data.csv')
 
-  const total = [...byCategory.values()].reduce((a, b) => a + b, 0)
-  if (total <= 0) return null
+  const hhiByMonth = new Map(
+    main.map((row) => [
+      row.Month,
+      {
+        china: numericHHI(row.CHN_HHI),
+        russia: numericHHI(row.RUS_HHI),
+      },
+    ]),
+  )
 
-  const categories = [...byCategory.entries()]
-    .map(([category, value]) => ({ category, value, share: value / total }))
-    .sort((a, b) => b.value - a.value)
-
-  const hhi = categories.reduce((acc, c) => acc + (c.share * 100) ** 2, 0)
-  const topShare = categories.slice(0, topN).reduce((acc, c) => acc + c.share, 0)
-
-  return {
-    total,
-    categories,
-    topShare,
-    hhi,
-    includesResidual: categories.some((c) => c.category.toLowerCase() === 'other'),
+  function prepare(rows: CsvRow[], columns: string[]) {
+    return rows
+      .map((row) => ({
+        Month: row.Month,
+        ...Object.fromEntries(
+          columns.map((column) => [column, numeric(row[column])]),
+        ),
+      }))
+      .filter((row) => row.Month)
+      .sort((a, b) => a.Month.localeCompare(b.Month))
   }
-}
 
-export function hhiBand(hhi: number) {
-  if (hhi < 1500) return 'Unconcentrated'
-  if (hhi < 2500) return 'Moderately concentrated'
-  return 'Highly concentrated'
+  const chinaRows = prepare(china, chinaCommodityColumns)
+  const russiaRows = prepare(russia, russiaCommodityColumns)
+
+  const hhi = [...hhiByMonth.entries()]
+    .map(([Month, values]) => ({
+      Month,
+      CHN_HHI: values.china,
+      RUS_HHI: values.russia,
+    }))
+    .sort((a, b) => a.Month.localeCompare(b.Month))
+
+  return { chinaRows, russiaRows, hhi }
 }
