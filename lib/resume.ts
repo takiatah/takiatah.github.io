@@ -87,7 +87,7 @@ export const resumeProjects: { name: string; description: string }[] = [
 export const resumeSkills: { label: string; items: string[] }[] = [
   {
     label: 'Languages',
-    items: ['Python (Django)', 'SQL (PostgreSQL, MySQL)', 'Java', 'C', 'JavaScript (React.js, Node.js)', 'Go'],
+    items: ['Python & Django', 'SQL (PostgreSQL, MySQL)', 'Java', 'C', 'JavaScript (React.js, Next.js, Node.js)', 'Go', 'HTML', 'CSS & Tailwind CSS'],
   },
   {
     label: 'Tools',

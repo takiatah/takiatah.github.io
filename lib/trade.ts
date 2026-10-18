@@ -32,6 +32,7 @@ function numericHHI(value: string | undefined): number | null {
   return Number.isFinite(result) ? result : null
 }
 
+
 export function loadTradeConcentrationData() {
   const china = readCsv('china_commodity_exports.csv')
   const russia = readCsv('russia_commodity_exports.csv')
@@ -70,5 +71,22 @@ export function loadTradeConcentrationData() {
     }))
     .sort((a, b) => a.Month.localeCompare(b.Month))
 
-  return { chinaRows, russiaRows, hhi }
+  // load trade dependency data from main_data.csv.
+  const dependencyRows = main
+    .map((row) => ({
+      Month: row.Month,
+      RUS_IMP_DEP: numeric(row.RUS_IMP_DEP),
+      RUS_EXP_DEP: numeric(row.RUS_EXP_DEP),
+      CHN_IMP_DEP: numeric(row.CHN_IMP_DEP),
+      CHN_EXP_DEP: numeric(row.CHN_EXP_DEP),
+    }))
+    .filter((row) => row.Month)
+    .sort((a, b) => a.Month.localeCompare(b.Month))
+
+  return {
+    chinaRows,
+    russiaRows,
+    hhi,
+    dependencyRows,
+  }
 }
