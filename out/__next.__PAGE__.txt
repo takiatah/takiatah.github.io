@@ -1,0 +1,25 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/2lcx8uyy8tfrk.js"
+4:"/_next/static/chunks/12x6x68sf16kz.js"
+5:"/_next/static/chunks/1kjd05r0_6d6z.js"
+6:I[22016,["$3","$4","$5"],""]
+7:I[92027,["$3","$4","$5"],"Universe"]
+8:"DestinationCards"
+9:I[92027,["$3","$4","$5"],"$8"]
+a:I[97367,["$3"],"OutletBoundary"]
+b:"$Sreact.suspense"
+f:"ViewportBoundary"
+10:I[97367,["$3"],"$f"]
+11:"MetadataBoundary"
+12:I[97367,["$3"],"$11"]
+13:I[27201,["$3"],"IconMark"]
+e:X
+1:[["children",{"s":"__PAGE__","h":128,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"starfield","children":[["$","section",null,{"className":"mx-auto max-w-6xl px-4 pb-6 pt-12 md:pt-16","children":[["$","p",null,{"className":"text-xs font-medium uppercase tracking-[0.3em] text-skills","children":"Portfolio of Takia Tahmid"}],["$","h1",null,{"className":"mt-3 max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl","children":"A small universe of data, models, and software."}],["$","p",null,{"className":"mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground","children":"Pick a destination to explore. Each world collects a different kind of work, from sales analysis and Kaggle competitions to systems programming and web design."}],["$","div",null,{"className":"mt-6 flex flex-wrap gap-3","children":[["$","$L6",null,{"href":"/about","className":"rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90","children":"About me"}],["$","$L6",null,{"href":"/skills","className":"rounded-md border border-border px-4 py-2 text-sm font-medium hover:bg-accent","children":"Browse skills"}]]}]]}],["$","section",null,{"aria-label":"Destinations","className":"px-4 pb-16","children":[["$","h2",null,{"className":"sr-only","children":"Destinations"}],["$","$L7",null,{}],["$","$L9",null,{}]]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/12x6x68sf16kz.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/1kjd05r0_6d6z.js","async":true}]],["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],"p":"$@d","v":null,"s":"$e"}}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L10",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0b0f1f"}],["$","meta","3",{"name":"color-scheme","content":"dark"}]]}],["$","$L12",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ORBIT — Takia Tahmid"}],["$","meta","1",{"name":"description","content":"ORBIT is the portfolio of Takia Tahmid: data analysis, machine learning, research, software engineering, and design projects arranged as a small universe."}],["$","meta","2",{"name":"generator","content":"v0.app"}],["$","link","3",{"rel":"icon","href":"/icon-light-32x32.png","media":"(prefers-color-scheme: light)"}],["$","link","4",{"rel":"icon","href":"/icon-dark-32x32.png","media":"(prefers-color-scheme: dark)"}],["$","link","5",{"rel":"icon","href":"/icon.svg","type":"image/svg+xml"}],["$","link","6",{"rel":"apple-touch-icon","href":"/apple-icon.png"}],["$","$L13","7",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@14","v":null,"s":"$e"}},"a":"$@15","u":"$@16","b":"39Pggz0wzhSEfF-LO3-qx"}
+c:null
+16:true
+e:300
+e:C
+15:0
+14:"$undefined"
+d:"$undefined"
