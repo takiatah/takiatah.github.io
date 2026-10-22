@@ -30,7 +30,7 @@ export default function ChinaRussiaTradePage() {
     <>
       <PageHero
         eyebrow="Research dashboard"
-        title="Decision Risk in Global Supply Chains: The Russia–China Trade Corridor."
+        title="Decision Risk in Global Supply Chains: The Russia–China Trade Corridor"
         description="How has risk evolved and redistributed in China and Russia trade, and how are they affected by geopolitical disruptions? This dashboard brings together geopolitical, concentration, dependency, transport, and economic risks. The goal is to put all of these together to create an overall risk framework that can be used on any trade partners."
         accentVar="--accent-research"
         backHref="/research"

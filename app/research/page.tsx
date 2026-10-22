@@ -21,7 +21,7 @@ export default function ResearchPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <article className="flex flex-col gap-4 rounded-2xl border border-border bg-card/80 p-6 md:p-8">
           <span className="text-xs font-medium uppercase tracking-wider text-research">Research dashboard</span>
-          <h2 className="text-2xl font-semibold">China–Russia Trade Relations</h2>
+          <h2 className="text-2xl font-semibold">Russia–China Trade Risks</h2>
           <p className="max-w-3xl leading-relaxed text-muted-foreground">
             An interactive dashboard on the economic relationship between China and Russia, combining the Geopolitical
             Risk Index for both countries with a framework for measuring how concentrated their bilateral trade is across
