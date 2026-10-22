@@ -31,7 +31,7 @@ export default function ChinaRussiaTradePage() {
       <PageHero
         eyebrow="Research dashboard"
         title="Decision Risk in Global Supply Chains: The Russia–China Trade Corridor"
-        description="How has risk evolved and redistributed in China and Russia trade, and how are they affected by geopolitical disruptions? This dashboard brings together geopolitical, concentration, dependency, transport, and economic risks. The goal is to put all of these together to create an overall risk framework that can be used on any trade partners."
+        description="How has risk evolved and redistributed in China and Russia trade, and how are they affected by geopolitical disruptions? This dashboard brings together geopolitical, concentration, dependency, transport, and economic risks. The goal of this ongoing project is to put all of these together to create an overall risk framework that can be used on any trade partners."
         accentVar="--accent-research"
         backHref="/research"
         backLabel="Back to Research Observatory"
@@ -41,7 +41,7 @@ export default function ChinaRussiaTradePage() {
         <Panel
           id="overview"
           title="Dashboard Overview"
-          description="China and Russia has been chosen as the case study because trade between them has been rapidly increasing, especially after the Russian annexation of Crimea in February 2014 and Russia's invasion of Ukraine in February 2022. These events drastically changed global supply chains and trade dynamics, as Russia was forced to reduce trade with Western countries and rely more on China. While some risks were reduced, new risks were introduced. The research concentrates on how trade and risk factors are affected by these disputions. The dashboard focuses on 5 risk areas: geopolitical, concentration, dependency, transport, and economic risks."
+          description="China and Russia has been chosen as the case study because trade between them has been rapidly increasing, especially after the Russian annexation of Crimea in February 2014 and Russia's invasion of Ukraine in February 2022. These events drastically changed global supply chains and trade dynamics, as Russia was forced to reduce trade with Western countries and rely more on China. While some risks were reduced, new risks were introduced. The research concentrates on how trade and risk factors are affected by these disputions. The dashboard will focus on 5 risk areas: geopolitical, concentration, dependency, transport, and economic risks."
         >
           <h1></h1>
         </Panel>

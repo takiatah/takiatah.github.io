@@ -21,13 +21,13 @@ export default function ResearchPage() {
       <section className="mx-auto max-w-6xl px-4 py-12">
         <article className="flex flex-col gap-4 rounded-2xl border border-border bg-card/80 p-6 md:p-8">
           <span className="text-xs font-medium uppercase tracking-wider text-research">Research dashboard</span>
-          <h2 className="text-2xl font-semibold">Russia–China Trade Risks</h2>
+          <h2 className="text-2xl font-semibold">Decision Risks in Russia–China Trade</h2>
           <p className="max-w-3xl leading-relaxed text-muted-foreground">
-            An interactive dashboard on the economic relationship between China and Russia, combining the Geopolitical
-            Risk Index for both countries with a framework for measuring how concentrated their bilateral trade is across
-            commodity categories.
+            An interactive dashboard on the risks associated with trade between China and Russia. This dashboard brings together geopolitical, 
+            concentration, dependency, transport, and economic risks. The goal of this ongoing project is to put all of these together to 
+            create an overall risk framework that can be used on any trade partners. 
           </p>
-          <TechTags items={['Recharts', 'Geopolitical Risk Index', 'Herfindahl–Hirschman Index', 'TypeScript']} />
+          <TechTags items={['Recharts', 'Pandas', 'Geopolitical Risk Index', 'Herfindahl–Hirschman Index', 'Trade Dependency', 'TypeScript']} />
           <Link
             href="/research/china-russia-trade"
             className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
