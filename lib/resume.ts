@@ -1,4 +1,4 @@
-export const RESUME_PDF = 'public/takia-tahmid-resume.pdf'
+export const RESUME_PDF = '/takia-tahmid-resume.pdf'
 
 export const resumeSummary =
   'Third-year Computer Science student at the University at Buffalo and Data Science Research Assistant with experience in software development, web development, machine learning, data engineering and analysis.'
