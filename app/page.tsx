@@ -10,7 +10,7 @@ export default function HomePage() {
           A small universe of data, models, and software.
         </h1>
         <p className="mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-          Pick a destination to explore. Each world collects a different kind of work, from sales analysis and Kaggle
+          Hi! My name is Takia. I'm a computer science student at the University at Buffalo with an interest in software engineering and data science. Pick a destination to learn more about me. Each world collects a different kind of work, from sales analysis and Kaggle
           competitions to systems programming and web design.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">

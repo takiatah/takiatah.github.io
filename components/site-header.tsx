@@ -17,7 +17,7 @@ export function SiteHeader() {
             <span className="absolute inset-0 rounded-full border border-skills/60" />
             <span className="size-2 rounded-full bg-skills" />
           </span>
-          ORBIT
+          MY UNIVERSE
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { TechTags } from '@/components/tech-tags'
 
@@ -27,14 +27,25 @@ export default function ResearchPage() {
             concentration, dependency, transport, and economic risks. The goal of this ongoing project is to put all of these together to 
             create an overall risk framework that can be used on any trade partners. 
           </p>
-          <TechTags items={['Recharts', 'Pandas', 'Geopolitical Risk Index', 'Herfindahl–Hirschman Index', 'Trade Dependency', 'TypeScript']} />
-          <Link
-            href="/research/china-russia-trade"
-            className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
-          >
-            Open the dashboard
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
+          <TechTags items={['Python', 'Recharts', 'Pandas', 'XGBoost', 'Scikit-learn', 'Streamlit', 'Trade Dependency', 'TypeScript']} />
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            <Link
+                href="/research/china-russia-trade"
+                className="inline-flex w-fit items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+              >
+                Learn more
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+              <Link
+                href="https://china-russia-supply-chain-risk.streamlit.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+              >
+                Open Dashboard
+                <ExternalLink className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
         </article>
       </section>
     </>
