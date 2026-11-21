@@ -42,7 +42,7 @@ export function ProjectCard({ project, accentVar, href, featured, children }: Pr
         {project.status !== 'concept' && <ProjectActions project={project} />}
         {href && (
           <Link href={href} className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline">
-            Read the case study
+            View project
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         )}

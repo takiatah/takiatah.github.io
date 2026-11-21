@@ -11,6 +11,7 @@ export const repoLinks = {
   onlineRetail: repo('online-retail-data-sales-analysis'),
   bellabeat: repo('bellabeat-fitness-data-analysis'),
   snakeGame: repo('snake-game'),
+  littlePrince: repo('little-prince-simulator'),
   oliveAndVine: repo('olive-and-vine-website'),
   titanic: repo('Titanic-Predictions---Machine-Learning-Kaggle-Competition'),
   tweets: repo('NLP-with-Disaster-Tweet-Predictions---Machine-Learning-Kaggle-Competition'),
@@ -18,6 +19,7 @@ export const repoLinks = {
 } as const
 
 export const externalLinks = {
+  littlePrince: 'https://little-prince-simulator.vercel.app/',
   onlineRetailKaggleNotebook: 'https://www.kaggle.com/code/takia2006/e-commerce-sales-analysis',
   titanicKaggleNotebook: 'https://www.kaggle.com/code/takia2006/titanic-machine-learning-predictions',
   tweetsKaggleNotebook: 'https://www.kaggle.com/code/takia2006/disaster-tweets',

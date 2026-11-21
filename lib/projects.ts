@@ -12,7 +12,7 @@ export interface ProjectSection {
 }
 
 export interface MediaAsset {
-  kind: 'gif' | 'image'
+  kind: 'gif' | 'image' | 'video'
   /** Planned path inside /public. The file may not exist yet; set `available` once it is added. */
   src: string
   available: boolean
@@ -20,6 +20,7 @@ export interface MediaAsset {
   caption: string
   width: number
   height: number
+  poster?: string
 }
 
 export interface Project {
@@ -151,6 +152,69 @@ export const futureMlExperiments = [
 /* -------------------------------- Engineering Bay ------------------------------- */
 
 export const engineeringProjects: Project[] = [
+  {
+    slug: 'little-prince',
+    title: 'The Little Prince Simulator',
+    subtitle: 'Interactive Space Adventure',
+    category: 'Game Development / Hackathon Project',
+    summary:
+      'An interactive story-driven space adventure inspired by The Little Prince. Players explore planets, make choices that shape their journey, and travel through space using NASA-based orbital trajectory calculations.',
+    tech: ['Python', 'JavaScript/TypeScript', 'Phaser', 'FastAPI', 'NASA Lambert API',],
+    sourceAvailability: { type: 'public', repoUrl: repoLinks.littlePrince, },
+    status: 'complete',
+    links: [{ label: 'The Little Prince Simulator', href: externalLinks.littlePrince }],
+    media: {
+      kind: 'video',
+      src: '/media/little-prince.mp4',
+      available: true,
+      alt: 'Gameplay demonstration of The Little Prince Simulator.',
+      caption: 'Gameplay demo: interactive storytelling, planetary exploration, and space travel.',
+      width: 1280,
+      height: 720,
+      poster: '/media/little-prince-thumbnail.png',
+    },
+    sections: [
+      {
+        heading: 'Overview',
+        body: [
+          'A story-driven adventure inspired by The Little Prince, combining interactive storytelling with space exploration and orbital mechanics.',
+          'Players travel between planets, interact with characters and objects, and make decisions that influence their experience. Play the game using the link above.',
+        ],
+      },
+      {
+        heading: 'Interactive storytelling',
+        body: [
+          'Branching dialogue and player choices create an interactive narrative experience.',
+          'Players interact with the environment, including caring for the rose through actions such as watering.',
+          'A heart-based scoring system reflects player decisions throughout the adventure.',
+        ],
+      },
+      {
+        heading: 'Planetary exploration',
+        body: [
+          'Players travel between planets including Earth, Mars, Venus, and Jupiter.',
+          'Each planetary environment features its own visual design and interactive elements.',
+          'Phaser manages scene transitions, animations, user input, and gameplay interactions.',
+        ],
+      },
+      {
+        heading: 'Orbital trajectory calculations',
+        body: [
+          'Integrates NASA-based trajectory calculations to connect the fictional adventure with real orbital mechanics.',
+          'A Python FastAPI backend supports trajectory-related calculations and communicates with the TypeScript game frontend.',
+          'Displays real time calculations, travel times, and distances for the best trajectories.',
+        ],
+      },
+      {
+        heading: 'Technical implementation',
+        body: [
+          'Built with Phaser and TypeScript for interactive 2D gameplay and scene management.',
+          'Uses reusable game components for backgrounds, planetary environments, and interactive objects.',
+          'Combines frontend gameplay with a Python backend for space trajectory calculations.',
+        ],
+      },
+    ],
+  },
   {
     slug: 'snake-game',
     title: 'Java Snake Game',
