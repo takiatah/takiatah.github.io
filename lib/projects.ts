@@ -218,6 +218,7 @@ export const engineeringProjects: Project[] = [
   {
     slug: 'snake-game',
     title: 'Java Snake Game',
+    subtitle: 'Classic Desktop Snake Game',
     category: 'Game Development',
     summary:
       'A classic Snake game in Java with real-time keyboard controls, growing-tail collision detection, random golden apple generation, and score tracking.',
@@ -255,6 +256,7 @@ export const engineeringProjects: Project[] = [
   {
     slug: 'c-memory-allocator',
     title: 'C Memory Allocator',
+    subtitle: 'Custom Dynamic Memory Allocator',
     category: 'Systems Programming',
     summary:
       'A dynamic memory allocator in C implementing allocation and freeing on a managed heap, with attention to fragmentation and throughput.',
@@ -280,6 +282,7 @@ export const engineeringProjects: Project[] = [
   {
     slug: 'pathfinding-game',
     title: 'Pathfinding Game',
+    subtitle: 'Player-Enemy-Goal Game',
     category: 'Game AI',
     summary:
       'A game in which characters navigate a map with pathfinding and switch between behaviors such as chasing, retreating, and building health.',
@@ -325,6 +328,7 @@ export const engineeringProjects: Project[] = [
   {
     slug: 'ocaml-interactive-fiction',
     title: 'OCaml Interactive Fiction Engine',
+    subtitle: 'Text-based Adventure Game',
     category: 'Functional Programming',
     summary:
       'A text-adventure engine in OCaml that loads a game world, parses player commands, and updates game state immutably.',
